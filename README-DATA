@@ -1,0 +1,28 @@
+********** DATA DESCRIPTION **********
+
+The format of the data, and the required fields are reflected in the structure of the .json training dataset.
+Each entry in the dataset is a single text, represented as a dictionary with the following fields:
+"id" - a unique identifier for the entry, "category" - text-level class,
+"text" - the text itself, and "annotations" - a list of annotations.
+"spacy_tokens" - a list of tokens, as provided by the spaCy tokenizer, encoded with method in dataset_utils.py.
+These tokens are provided to easy reconstruction of the spacy doc objects (read below),
+and for convenience, if a user needs access to the original tokenization.
+
+Each annotation is represented as a dictionary with the following fields:
+"category" - span-level category (see task description for details),
+"start_char", "end_char" - character-level boundaries (C-style, 0-based, end-exclusive).
+These are basic required fields. The following fields are also provided:
+"start_spacy_token", "end_spacy_token" - token-level boundaries (spaCy tokenization) - for reconstruction of the spacy doc objects,
+"annotator" - for additional information, not required,
+"span_text" - to ease the browsing of the dataset, not required.
+
+The data is pre-processed and tokenized for convenience.
+Baseline solutions for sequence labeling rely on the input data in spaCy docbin format,
+and loaders of spacy documents can be used for constructing a spaCy-based or any custom solution.
+Original spaCy tokenizer, customized for sub- URL, email, and mention tokenization, can also be used,
+for example to apply the models to new data.
+
+For non-python users, or those wishing to use a different data pipeline:
+'raw' "text" values, together with "start_char" and "end_char" fields
+should be used to construct the input data for the sequence labeling models.
+
