@@ -9,12 +9,12 @@ create virtual environment
 
 activate
 
-'''source $HOME/venvs/first_env/bin/activate'''
+```source $HOME/venvs/first_env/bin/activate```
 
 install requirements
 
 #### Finetune classifier (saves the best fold):
-'''sbatch thesis/bash_scripts/run_classif_train.sh'''
+```sbatch thesis/bash_scripts/run_classif_train.sh```
 
 #### Evaluate classifier:
-'''sbatch thesis/bash_scripts/run_classif_eval.sh'''
+```sbatch thesis/bash_scripts/run_classif_eval.sh```
