@@ -18,3 +18,5 @@ install requirements
 
 #### Evaluate classifier:
 ```sbatch thesis/bash_scripts/run_classif_eval.sh```
+
+Models can be found at https://huggingface.co/oppositional-2024
